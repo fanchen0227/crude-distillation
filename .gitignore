@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+**/.DS_Store
+temp/
+# Ignore everything with temp in it
+*temp*
+
+# Jupyter Notebook
+.ipynb_checkpoints
