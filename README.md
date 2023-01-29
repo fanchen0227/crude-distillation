@@ -52,13 +52,14 @@ Mean absolute error (MAE): 11.004878737436725
 Root mean sqaure error (RMSE): 16.138275060676385
 R square (r2): 0.9931326280807293
 
-![feature_importance] (./docs/images/feature.png)
+![feature_importance] (docs/images/feature.png)
 
 ## Deployment
 
 The trained random forest model is compressed and output as a joblib file. The model, crudes profile and feature function in src folder were zipped and deployed in [google cloud function](https://cloud.google.com/functions). We can call the API by using the url that contains crude variables to get the distillation profile line chart of the mixture.
 
 https://northamerica-northeast1-durable-cacao-374303.cloudfunctions.net/crude?name1={name1}&volume1={volume1}&name2={name2}&volume2={volume2}
+    
     Args:
         name1: the name of the crude 1. The upper case matters.
         volume1: the volume of the crude 1 added - unit liters.
@@ -71,8 +72,11 @@ name1 = Pembina
 volume1 = 1
 name2 = Western_Canadian_Select
 volume2 = 5
+
+
 https://northamerica-northeast1-durable-cacao-374303.cloudfunctions.net/crude?name1=Pembina&volume1=1&name2=Western_Canadian_Select&volume2=5
-![line_chart] (./docs/images/line_chart.png)
+
+![line_chart] (docs/images/line_chart.png)
 
 
 # Future Improvment
