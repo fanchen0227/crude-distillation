@@ -48,11 +48,14 @@ training set : testing set = : = 7:3
 The random forest model with maximum depth of 12 and 200 estimators is the champion of trained models. Cross validation of hyper-parameter tuning is used for model selection and prevent overfitting. 
 
 The performance in the test set is
+
 Mean absolute error (MAE): 11.004878737436725
+
 Root mean sqaure error (RMSE): 16.138275060676385
+
 R square (r2): 0.9931326280807293
 
-![feature_importance] (docs/images/feature.png)
+![feature_importance](docs/images/feature.png)
 
 ## Deployment
 
@@ -67,16 +70,21 @@ https://northamerica-northeast1-durable-cacao-374303.cloudfunctions.net/crude?na
         volume2: the volume of the crude 2 added - unit liters.
 
 Example:
+
 If we mix 1L of Pembina and 5L of Western Canadian Select, the variables and url will be:
+
 name1 = Pembina
+
 volume1 = 1
+
 name2 = Western_Canadian_Select
+
 volume2 = 5
 
 
 https://northamerica-northeast1-durable-cacao-374303.cloudfunctions.net/crude?name1=Pembina&volume1=1&name2=Western_Canadian_Select&volume2=5
 
-![line_chart] (docs/images/line_chart.png)
+![line_chart](docs/images/line_chart.png)
 
 
 # Future Improvment
