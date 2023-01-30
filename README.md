@@ -29,24 +29,27 @@ The idea is to train a ML model to predict the distillation profile based on the
 With the calculated features of mixture, we can predict the distillation profile. 
 
 ## Assumption & Simplification:
-### Distillation prediction
+### Distillation Prediction
 1. The stimulated distillation from crude monitor is the actual distillation profile for the crude. The accuracy of the stimulated distillation will affect our model accuracy since we use stimulation as dependent variable.
 2. The feature of basic analysis and light ends are sufficient enough to predict the distillation profile. No other features will be added due to availability. 
 3. The purpose of the model is to predict. We don't pay to much on model interpretability.
-### Feature calculation of Physical properties
+### Feature Calculation of Physical Properties
 1. The volume of mixture is the sum of the volumes of two crudes. 
 2. Gravity of the mixture can be calculated based on the volume.
 
 ## Modelling
 
+### Features
 Y(dependent variable) is the tempareture. \
 X(independent variable) is the features including: 'Absolute Density (kg/m3)', 'Gravity (&degAPI)', 'Sulphur (wt%)', 'MCR (wt%)', 'Sediment (ppmw)', 'TAN (mgKOH/g)', 'Salt (ptb)', 'Nickel (mg/kg)', 'Vanadium (mg/kg)','C1 Methane (vol%)', 'C2 Ethane (vol%)', 'C3 Propane (vol%)', 'iC4 iso-Butane (vol%)', 'nC4 n-Butane (vol%)',
  'iC5 iso-Pentane (vol%)', 'nC5 n-Pentane (vol%)', 'C6 Hexanes (vol%)', 'C7 Heptanes (vol%)', 'C8 Octanes (vol%)', 'C9 Nonanes (vol%)', 'C10 Decanes (vol%)', '%mass'
 
 After data cleaning and transformation, we get the dataset of 93402 rows. The we split the dataset into training set and testing with the ratio of 7:3.
 
+### Model Selection
 The random forest model with maximum depth of 12 and 200 estimators is the champion of trained models. Cross validation of hyper-parameter tuning is used for model selection and prevent overfitting. 
 
+## Model Evaluation
 The performance in the test set is \
 Mean absolute error (MAE): 11.004878737436725 \
 Root mean sqaure error (RMSE): 16.138275060676385 \
@@ -78,8 +81,39 @@ https://northamerica-northeast1-durable-cacao-374303.cloudfunctions.net/crude?na
 
 ![line_chart](docs/images/line_chart.png)
 
+If we would like to get the json instead of the html chart, add '&json_y=y' at the end of the url. \
+Example: \
+https://northamerica-northeast1-durable-cacao-374303.cloudfunctions.net/crude?name1=Pembina&volume1=1&name2=Western_Canadian_Select&volume2=5&json_y=y
 
-# Future Improvment
+
+## Local Testing
+Before start local testing, we need to create an virtual environment and install dependencies:
+```shell
+python -m venv venv
+source venv/bin/activate
+pip install -r src/requirements.txt
+```
+
+If we want to test the application locally, we can run the comment below to start the local server:
+```
+cd src
+functions-framework --target predict --debug
+```
+After this, the local server will be hosted at http://127.0.0.1:8080/ \
+Eaxmple url to test locally: \
+http://127.0.0.1:8080/?name1=Pembina&volume1=1&name2=Western_Canadian_Select&volume2=0
+
+We can run the test script to check if the local service is working well:
+```
+python3 tests/integration_testing.py True
+```
+
+If we would like to test the service running on GCP, We can run the test script:
+```
+python3 tests/integration_testing.py False
+```
+
+## Future Improvment
 1. For some crude(eg.[Light Smiley](https://crudemonitor.ca/crudes/crude.php?acr=MSY)), when the mass% receovered reaches some point(eg. 95%), the residule won't further decrease. In this case, the temperature after that points cannot be predicted and should be null. We can build a model to predict what crude will have what threshould point to make the prediction of distillation more accurate. 
 2. We can try to add features (eg. BTEX) which is not available from Crude Monitor API. Check if it's improving the model. 
 3. Explore other ML algrithms of prediction and adjust the function of property calculation.

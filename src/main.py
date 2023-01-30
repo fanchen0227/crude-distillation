@@ -24,7 +24,7 @@ def predict(request):
     volume1 = float(request.args.get('volume1'))
     name2 = request.args.get('name2').replace('_', ' ')
     volume2 = float(request.args.get('volume2'))
-
+    json_y = request.args.get('json_y')
     # get the array of the phisical properies of the mixture.
     x_pred = calculate_properties(name1, volume1, name2, volume2)
 
@@ -40,5 +40,7 @@ def predict(request):
     for i, mass in enumerate(mass_list):
         result[mass] = y_predict[i]
 
+    if json_y == 'y':
+        return result
     # return the html of line chart that shows the distallation profile of the mixture
     return render_template("line_chart.html",result=result, name1=name1, volume1=volume1, name2=name2, volume2=volume2)
