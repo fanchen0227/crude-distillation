@@ -3,10 +3,18 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# macbook only
 **/.DS_Store
-temp/
-# Ignore everything with temp in it
-*temp*
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+url.env

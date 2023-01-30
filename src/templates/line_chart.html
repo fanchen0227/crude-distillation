@@ -1,0 +1,101 @@
+<html>
+    <head>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Mass % Recovered', 'Temperature ° C'],
+            ['IBP',  {{ result[0] }}],
+            ['5',    {{ result[5] }}],
+            ['10',  {{ result[10] }}],
+            ['15',  {{ result[15] }}],
+            ['20',  {{ result[20] }}],
+            ['25',  {{ result[25] }}],
+            ['30',  {{ result[30] }}],
+            ['35',  {{ result[35] }}],
+            ['40',  {{ result[40] }}],
+            ['45',  {{ result[45] }}],
+            ['50',  {{ result[50] }}],
+            ['55',  {{ result[55] }}],
+            ['60',  {{ result[60] }}],
+            ['65',  {{ result[65] }}],
+            ['70',  {{ result[70] }}],
+            ['75',  {{ result[75] }}],
+            ['80',  {{ result[80] }}],
+            ['85',  {{ result[85] }}],
+            ['90',  {{ result[90] }}],
+            ['95',  {{ result[95] }}],
+            ['99',  {{ result[99] }}],
+          ]);
+  
+          var options = {
+            title: 'Distillation Profile of the Mixture [{{volume1}}L {{name1}} + {{volume2}}L {{name2}}]',
+            curveType: 'function',
+            legend: { position: 'bottom' },
+            vAxis: {
+              title: 'Temperature ° C'
+            },
+            hAxis: {
+              title: 'Mass % Recovered'
+            },
+          }
+  
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  
+          chart.draw(data, options);
+        }
+      </script>
+    </head>
+    <body>
+      <div id="curve_chart" style="width: 1400px; height: 500px"></div>
+    </body>
+  </html>
+
+  <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Mass % Recovered');
+        data.addColumn('number', 'Temperature ° C');
+        data.addRows([
+          ['IBP',  {{ result[0] }}],
+          ['5',    {{ result[5] }}],
+          ['10',  {{ result[10] }}],
+          ['15',  {{ result[15] }}],
+          ['20',  {{ result[20] }}],
+          ['25',  {{ result[25] }}],
+          ['30',  {{ result[30] }}],
+          ['35',  {{ result[35] }}],
+          ['40',  {{ result[40] }}],
+          ['45',  {{ result[45] }}],
+          ['50',  {{ result[50] }}],
+          ['55',  {{ result[55] }}],
+          ['60',  {{ result[60] }}],
+          ['65',  {{ result[65] }}],
+          ['70',  {{ result[70] }}],
+          ['75',  {{ result[75] }}],
+          ['80',  {{ result[80] }}],
+          ['85',  {{ result[85] }}],
+          ['90',  {{ result[90] }}],
+          ['95',  {{ result[95] }}],
+          ['99',  {{ result[99] }}],
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '1200', height: '500'});
+      }
+    </script>
+  </head>
+  <body>
+    <div id="table_div"></div>
+  </body>
+</html>

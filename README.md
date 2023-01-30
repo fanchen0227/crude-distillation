@@ -22,7 +22,7 @@ The goal of the project is to create a model which will give an pproximate disti
 
 ## Methdology
 
-The project is collecting the data from Crude Monitor, covering the 61 crudes of 4866 sample profiles from 2013 Jan to 2023 Jan. The crude profile include basic analysis, light ends and simulated distillation. [Here]() is the data exploration profile report.
+The project is collecting the data from Crude Monitor, covering the 61 crudes of 4866 sample profiles from 2013 Jan to 2023 Jan. The crude profile include basic analysis, light ends and simulated distillation. [Here](https://github.com/fanchen0227/crude-distillation/blob/develop/docs/pandas_profiling_report.pdf) is the data exploration profile report.
 
 The idea is to train a ML model to predict the distillation profile based on the feature of basic analysis and light ends. We built the 61 crudes' profile based on the latest sample data. Then we built a function that calculated the features of the mixture based on physical properties. 
 
