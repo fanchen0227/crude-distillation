@@ -4,8 +4,8 @@ import json
 import sys
 
 
-def generate_url(name1, volume1, name2, volume2, local=True):
-    if local == "False":
+def generate_url(name1, volume1, name2, volume2, env):
+    if env == "gcp":
         print('Testing gcp environment')
         url = f'https://northamerica-northeast1-durable-cacao-374303.cloudfunctions.net/crude?name1={name1}&volume1={volume1}&name2={name2}&volume2={volume2}&json_y=y'
     else:
@@ -28,8 +28,8 @@ name2 = "Fort Hills Dilbit"
 volume1 = 1
 volume2 = 2
 
-def test_case_1(name1='Pembina', volume1=1, name2='Fort_Hills_Dilbit', volume2=0, local=True):
-    url = generate_url(name1, volume1, name2, volume2, local)
+def test_case_1(name1='Pembina', volume1=1, name2='Fort_Hills_Dilbit', volume2=0, env='gcp'):
+    url = generate_url(name1, volume1, name2, volume2, env)
     true_y = {
         "0": 34.1,
         "5": 52.7,
@@ -57,8 +57,8 @@ def test_case_1(name1='Pembina', volume1=1, name2='Fort_Hills_Dilbit', volume2=0
     compare_result(true_y, pred_y)
     print('Test case 1 is successfully completed.')
     
-def test_case_2(name1='Pembina', volume1=0, name2='Syncrude_Sweet_Premium', volume2=1, local=True):
-    url = generate_url(name1, volume1, name2, volume2, local)
+def test_case_2(name1='Pembina', volume1=0, name2='Syncrude_Sweet_Premium', volume2=1, env='gcp'):
+    url = generate_url(name1, volume1, name2, volume2, env)
     true_y = {
         "0": 34.7,
         "5": 102.5,
@@ -86,6 +86,6 @@ def test_case_2(name1='Pembina', volume1=0, name2='Syncrude_Sweet_Premium', volu
     compare_result(true_y, pred_y)
     print('Test case 2 is successfully completed.')
 
-local = sys.argv[1]
-test_case_1(local=local)
-test_case_2(local=local)
+env = sys.argv[1]
+test_case_1(env=env)
+test_case_2(env=env)

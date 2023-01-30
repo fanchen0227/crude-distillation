@@ -105,12 +105,12 @@ http://127.0.0.1:8080/?name1=Pembina&volume1=1&name2=Western_Canadian_Select&vol
 
 We can run the test script to check if the local service is working well:
 ```
-python3 tests/integration_testing.py True
+python3 tests/integration_testing.py local
 ```
 
-If we would like to test the service running on GCP, We can run the test script:
+If we would like to test the service running on Google Cloud Platform, We can run the test script:
 ```
-python3 tests/integration_testing.py False
+python3 tests/integration_testing.py gcp
 ```
 
 ## Dollar Value to Model Error
