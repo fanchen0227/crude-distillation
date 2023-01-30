@@ -44,16 +44,16 @@ Y(dependent variable) is the tempareture. \
 X(independent variable) is the features including: 'Absolute Density (kg/m3)', 'Gravity (&degAPI)', 'Sulphur (wt%)', 'MCR (wt%)', 'Sediment (ppmw)', 'TAN (mgKOH/g)', 'Salt (ptb)', 'Nickel (mg/kg)', 'Vanadium (mg/kg)','C1 Methane (vol%)', 'C2 Ethane (vol%)', 'C3 Propane (vol%)', 'iC4 iso-Butane (vol%)', 'nC4 n-Butane (vol%)',
  'iC5 iso-Pentane (vol%)', 'nC5 n-Pentane (vol%)', 'C6 Hexanes (vol%)', 'C7 Heptanes (vol%)', 'C8 Octanes (vol%)', 'C9 Nonanes (vol%)', 'C10 Decanes (vol%)', '%mass'
 
-After data cleaning and transformation, we get the dataset of 93402 rows. The we split the dataset into training set and testing with the ratio of 7:3.
+After data cleaning and transformation, we get the dataset of 93402 rows. Then we split the dataset into training set and testing with the ratio of 7:3.
 
 ### Model Selection
 The random forest model with maximum depth of 12 and 200 estimators is the champion of trained models. Cross validation of hyper-parameter tuning is used for model selection and prevent overfitting. 
 
-## Model Evaluation
+### Model Evaluation
 The performance in the test set is \
-Mean absolute error (MAE): 11.004878737436725 \
-Root mean sqaure error (RMSE): 16.138275060676385 \
-R square (r2): 0.9931326280807293
+Mean absolute error (MAE): 11.005 \
+Root mean sqaure error (RMSE): 16.138 \
+R square (r2): 0.9931
 
 ![feature_importance](docs/images/feature.png)
 
