@@ -38,7 +38,7 @@ def predict(request):
     y_predict = rfg.predict(df_x_pred)
     result = {}
     for i, mass in enumerate(mass_list):
-        result[mass] = y_predict[i]
+        result[mass] = round(y_predict[i],2)
 
     if json_y == 'y':
         return result
