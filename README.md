@@ -69,6 +69,8 @@ https://northamerica-northeast1-durable-cacao-374303.cloudfunctions.net/crude?na
         name2: the name of the crude 2. The upper case matters.
         volume2: the volume of the crude 2 added - unit liters.
 
+We can choose two of the crudes from the list at the end of the documentation.
+
 Example:
 
 If we mix 1L of Pembina and 5L of Western Canadian Select, the variables and url will be: \
@@ -121,3 +123,6 @@ Take this chart as an example. The green line is the actual distillation profile
 1. For some crude(eg.[Light Smiley](https://crudemonitor.ca/crudes/crude.php?acr=MSY)), when the mass% receovered reaches some point(eg. 95%), the residule won't further decrease. In this case, the temperature after that points cannot be predicted and should be null. We can build a model to predict what crude will have what threshould point to make the prediction of distillation more accurate. 
 2. We can try to add features (eg. BTEX) which is not available from Crude Monitor API. Check if it's improving the model. 
 3. Explore other ML algrithms of prediction and adjust the function of property calculation.
+
+## Crude list
+["Pembina", "Fort_Hills_Dilbit", "Christina_Dilbit_Blend", "Lloyd_Kerrobert", "Western_Canadian_Select", "Albian_Heavy_Synthetic", "Western_Canada_Dilbit", "CNRL_Light_Sweet_Synthetic", "Suncor_Synthetic_A", "Medium_Gibson_Sour", "Access_Western_Blend", "PetroChina_Blend", "Surmont_Heavy_Dilbit", "Kearl_Lake", "Mixed_Sweet_Blend", "Bow_River_North", "Syncrude_Sweet_Premium", "Wabasca_Heavy", "Fosterton", "Rainbow", "Premium_Albian_Synthetic", "Peace", "Light_Smiley", "Canadian_Natural_High_TAN", "Secure_Sask_Light", "Lloyd_Blend", "Cold_Lake", "Smiley-Coleville", "Seal_Heavy", "Midale", "Premium_Conventional_Heavy", "Synthetic_Sweet_Blend", "Hardisty_Synthetic_Crude", "Medium_Sour_Blend", "Conventional_Heavy", "Light_Sour_Blend", "Premium_Synthetic", "Moose_Jaw_Tops", "Mixed_Sweet_Blend_(Superior)", "Suncor_Synthetic_H", "Surmont_Mix_A", "Borealis_Heavy_Blend", "Federated", "Husky_Synthetic_Blend", "Peace_Pipe_Sour", "Bow_River_South", "Koch_Alberta", "Western_Canadian_Blend", "Hardisty_Light", "Synbit_Blend", "Pembina_Light_Sour", "LLoyd_Blend", "Surmont_Heavy_Blend", "Leismer_Corner_Blend", "Long_Lake_Heavy", "Boundary_Lake", "Statoil_Cheecham_Synbit", "BC_Light", "Light_Sour_Blend_", "Long_Lake_Light_Synthetic", "Shell_Synthetic_Light"]
