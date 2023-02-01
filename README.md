@@ -120,7 +120,7 @@ python3 tests/integration_testing.py gcp
 Take this chart as an example. The green line is the actual distillation profile while the blue one is predicted. The temperature difference between prediction and actual value is around 10 °C (the model error (MAE) is around 11°C). When the temperature reaches 700°C, based on the prediction, the mass recovered rate should be 96% but the actual mass recovered rate is 95%. So the 1% difference is the recovery loss caused by the model error.  For 1 ton of crude, we may lose 0.01 ton of product recovered from the crude. Assume the product is petrol, whose unit price is 150 cents/liter, the loss of 0.01 tons of gas is 28.3 liters, worth $42.5. 
 
 ## Future Improvment
-1. For some crude(eg.[Light Smiley](https://crudemonitor.ca/crudes/crude.php?acr=MSY)), when the mass% receovered reaches some point(eg. 95%), the residule won't further decrease. In this case, the temperature after that points cannot be predicted and should be null. We can build a model to predict what crude will have what threshould point to make the prediction of distillation more accurate. 
+1. For some crude(eg.[Pembina](https://crudemonitor.ca/crudes/crude.php?acr=P)), when the mass% receovered reaches some point(eg. 90%), the residue won't further decrease. In this case, the temperature after that points cannot be predicted and should be null. We can build a model to predict what crude will have what threshould point to make the prediction of distillation more accurate. 
 2. We can try to add features (eg. BTEX) which is not available from Crude Monitor API. Check if it's improving the model. 
 3. Explore other ML algrithms of prediction and adjust the function of property calculation.
 
